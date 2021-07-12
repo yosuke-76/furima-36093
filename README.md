@@ -4,7 +4,7 @@
 
 | Column            | Type   | Options                   |
 |-------------------|--------|---------------------------|
-|nick name          | string | null: false               |
+|nick_name          | string | null: false               |
 |email              | string | null: false, unique: true |
 |encrypted_password | string | null: false               |
 |last_name          | string | null: false               |
@@ -17,21 +17,20 @@
 
 - has_many :comments
 - has_many :products
-- has_one :purchase_lists
-- has_one :shipping_addres
+- has_many :purchase_lists
 
 ## productsテーブル
 
 | Column            | Type       | Options                       |
 |-------------------|------------|-------------------------------|
-|user_id (fk)       | references | null: false, foreign_key: true|
+|user (fk)         | references | null: false, foreign_key: true|
 |product_name       | string     | null: false                   |
 |product_text       | text       | null: false                   |
-|categpry           | string     | null: false                   |
-|product_status     | string     | null: false                   |
-|delivery_charge    | string     | null: false                   |
-|shipping_area      | string     | null: false                   |
-|shipinng_days      | string     | null: false                   |
+|categpry_id        | integer    | null: false                   |
+|product_status_id  | integer    | null: false                   |
+|delivery_charge_id | integer    | null: false                   |
+|shipping_area_id   | integer    | null: false                   |
+|shipinng_day_id    | integer    | null: false                   |
 |price              | integer    | null: false                   |
 
 ### Association
@@ -40,25 +39,23 @@
 - has_one :purchase_list
 - has_many :comments
 
-## shipping_adressテーブル
+## shipping_addressesテーブル
 
 | Column            | Type       | Options                       |
 |-------------------|------------|-------------------------------|
-|purchase_lists     | references | null: false, foreign_key: true|
-|users              | references | null: false, foreign_key: true|
+|purchase_list      | references | null: false, foreign_key: true|
 |postal_code        | string     | null: false                   |
-|prefectures        | string     | null: false                   |
+|prefectures        | integer    | null: false                   |
 |municipality       | string     | null: false                   |
 |addres             | string     | null: false                   |
-|building_name      | string     | null: false                   |
-|phone_number       | integer    | null: false                   |
+|building_name      | string     |                               |
+|phone_number       | string     | null: false                   |
 
 ### Association
 
-- belongs_to :user
 - belongs_to :purchase_list
 
-## purchase_listテーブル
+## purchase_listsテーブル
 
 | Column   | Type       | Options                       |
 |----------|------------|-------------------------------|
