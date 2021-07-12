@@ -15,7 +15,7 @@
 
 ### Association
 
-- has_many :comments
+<!-- - has_many :comments (追加実装時使用のため)-->
 - has_many :products
 - has_many :purchase_lists
 
@@ -23,13 +23,13 @@
 
 | Column            | Type       | Options                       |
 |-------------------|------------|-------------------------------|
-|user (fk)         | references | null: false, foreign_key: true|
+|user (fk)          | references | null: false, foreign_key: true|
 |product_name       | string     | null: false                   |
 |product_text       | text       | null: false                   |
 |categpry_id        | integer    | null: false                   |
 |product_status_id  | integer    | null: false                   |
 |delivery_charge_id | integer    | null: false                   |
-|shipping_area_id   | integer    | null: false                   |
+|prefecture_id      | integer    | null: false                   |
 |shipinng_day_id    | integer    | null: false                   |
 |price              | integer    | null: false                   |
 
@@ -37,7 +37,7 @@
 
 - belongs_to :user
 - has_one :purchase_list
-- has_many :comments
+<!-- - has_many :comments (追加実装時使用のため) -->
 
 ## shipping_addressesテーブル
 
@@ -45,9 +45,9 @@
 |-------------------|------------|-------------------------------|
 |purchase_list      | references | null: false, foreign_key: true|
 |postal_code        | string     | null: false                   |
-|prefectures        | integer    | null: false                   |
+|prefecture_id      | integer    | null: false                   |
 |municipality       | string     | null: false                   |
-|addres             | string     | null: false                   |
+|address            | string     | null: false                   |
 |building_name      | string     |                               |
 |phone_number       | string     | null: false                   |
 
@@ -68,7 +68,7 @@
 - belongs_to :product
 - has_one : shipping_adress
 
-## commentsテーブル
+<!-- ## commentsテーブル
 
 | Column   | Type       | Options                       |
 |----------|------------|-------------------------------|
@@ -79,4 +79,4 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :product
+- belongs_to :product  (追加実装時使用のため)-->
