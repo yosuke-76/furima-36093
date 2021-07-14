@@ -7,7 +7,7 @@ class Product < ApplicationRecord
   belongs_to :product_status
   belongs_to :shipping_day
 
-  with_options prefecture: true do
+  with_options presence: true do
     validates :image
     validates :product_name
     validates :product_text

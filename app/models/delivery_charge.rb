@@ -1,4 +1,4 @@
-class delivery_charg < ActiveHash::Base
+class Delivery_charg < ActiveHash::Base
   self.date = [
     { id: 1, name: '--' },
     { id: 2, name: '着払い(購入者負担)' },
