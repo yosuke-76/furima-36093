@@ -8,8 +8,8 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :nick_name
     validates :birthday
-    with_options format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}\z/ } do
-      validates :password, length: { minimum: 6 }
+    with_options format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}\z/ } do
+      validates :password
     end
     with_options format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ } do
       validates :last_name
