@@ -1,7 +1,6 @@
 class Product < ApplicationRecord
   has_one_attached :image
   belongs_to :user
-  has_one :purchase_list
   
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
@@ -21,7 +20,7 @@ class Product < ApplicationRecord
       validates :prefecture_id
       validates :shipping_day_id
     end
-    with_options numericality: { greater_than: 300, less_than: 9999999 } do
+    with_options numericality: { greater_than: 299, less_than: 10000000 } do
       validates :price, format: { with: /\A[0-9]+\z/ }
     end
   end

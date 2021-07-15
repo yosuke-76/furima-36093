@@ -9,8 +9,6 @@ FactoryBot.define do
     prefecture_id {2}
     shipping_day_id {2}
     price{ 333 }
-    created_at     { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
-    updated_at     { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
 
     after(:build) do |product|
       product.image.attach(io: File.open('public/fixtures/test.png'), filename: 'test.png')
