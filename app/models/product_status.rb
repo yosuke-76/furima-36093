@@ -1,5 +1,5 @@
-class Product_status < ActiveHash::Base
-  self.date = [
+class ProductStatus < ActiveHash::Base
+  self.data = [
     { id: 1, name: '--' },
     { id: 2, name: '新品・未使用' },
     { id: 3, name: '未使用に近い' },
@@ -10,6 +10,6 @@ class Product_status < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
-  has_many :product
+  has_many :products
   
 end
