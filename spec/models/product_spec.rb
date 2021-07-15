@@ -2,7 +2,6 @@ require 'rails_helper'
 RSpec.describe Product, type: :model do
   before do
     @product = FactoryBot.build(:product)
-    @product.image = fixture_file_upload("/test.png")
   end
   describe '新規商品情報入力' do
     context '新規情報登録ができる時' do
@@ -65,6 +64,11 @@ RSpec.describe Product, type: :model do
         @product.price = '299'
         @product.valid?
         expect(@product.errors.full_messages).to include "Price must be greater than 300"
+      end
+      it '画像が無いと出品できない' do
+        @product.image = nil
+        @product.valid?
+        expect(@product.errors.full_messages).to include "Image can't be blank"
       end
     end
   end

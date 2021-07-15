@@ -12,5 +12,8 @@ FactoryBot.define do
     created_at     { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
     updated_at     { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
 
+    after(:build) do |product|
+      product.image.attach(io: File.open('public/fixtures/test.png'), filename: 'test.png')
+    end
   end
 end
