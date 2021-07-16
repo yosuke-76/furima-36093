@@ -127,8 +127,8 @@
       新規投稿商品
     </div>
     <ul class='item-lists'>
-    <% if @product.present? %>
-      <% @product.each do |product| %>
+    <% if @products.present? %>
+      <% @products.each do |product| %>
         <li class='list'>
           <%= link_to products_path(product.id), method: :get do %>
           <div class='item-img-content'>

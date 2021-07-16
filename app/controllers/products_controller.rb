@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   def index
-    @product = Product.all.order('created_at DESC')
+    @products = Product.order('created_at DESC')
   end
   def new
     @product = Product.new
