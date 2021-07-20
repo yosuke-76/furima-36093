@@ -2,12 +2,9 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_order, only: [:index, :create]
   before_action :move_to_root, only: :index
-  before_action :purchase_address_new, only: [:index, :new]
 
   def index
-  end
-
-  def new
+    @purchase_address = PurchaseAddress.new
   end
 
   def create
@@ -40,8 +37,5 @@ class OrdersController < ApplicationController
     if (current_user == @product.user) || @product.purchase_list.present?
       redirect_to root_path
     end
-  end
-  def purchase_address_new
-    @purchase_address = PurchaseAddress.new
   end
 end
