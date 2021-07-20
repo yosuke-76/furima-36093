@@ -20,7 +20,7 @@ RSpec.describe PurchaseAddress, type: :model do
     end
 
     context '発送先情報が登録できない時' do
-      it 'postal_codが空だと登録できないこと' do
+      it 'postal_codeが空だと登録できないこと' do
         @purchase_address.postal_code = ''
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include "Postal code can't be blank"
@@ -55,7 +55,7 @@ RSpec.describe PurchaseAddress, type: :model do
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include "Municipality can't be blank"
       end
-      it 'addoressが空では登録できないこと' do
+      it 'addressが空では登録できないこと' do
         @purchase_address.address = ''
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include "Address can't be blank"
@@ -94,6 +94,11 @@ RSpec.describe PurchaseAddress, type: :model do
         @purchase_address.token = nil
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include "Token can't be blank"
+      end
+      it 'phone_numberは英数字混合では登録できないこと' do
+        @purchase_address.phone_number = '090-1a1a-2b2b'
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include "Phone number is invalid"
       end
     end
   end
