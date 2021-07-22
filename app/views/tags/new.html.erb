@@ -5,7 +5,7 @@
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with(model: @product,local: true) do |f| %>
+    <%= form_with(model: @product_tag, url: tags_path, local: true) do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
 
@@ -39,6 +39,14 @@
       </div>
     </div>
     <%# /商品名と商品説明 %>
+
+    <div class="tag-field", id='tag-field'>
+      <div class="weight-bold-text">
+        ブランド
+        <span class="indispensable">任意</span>
+      </div>
+      <%= f.text_field :name, class:"items-text", placeholder:"ブランド名" %>
+    </div>
 
     <%# 商品の詳細 %>
     <div class="items-detail">

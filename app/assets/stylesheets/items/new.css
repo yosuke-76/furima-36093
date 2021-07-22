@@ -111,6 +111,10 @@
 
 /* /商品名と商品説明 */
 
+.tag-field {
+  display: flex;
+  justify-content: space-between;
+}
 /* 商品の詳細など */
 .items-detail {
   display: flex;
