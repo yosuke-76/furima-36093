@@ -12,7 +12,12 @@ class TagsController < ApplicationController
       render :new
     end
   end
-  
+
+  def search
+    @tags = Tag.search(params[:text])
+    # @products = @tags.products
+  end
+
   private
 
   def tag_params

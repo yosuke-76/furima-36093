@@ -1,0 +1,33 @@
+<%= render "shared/header" %>
+
+<% @tags.each do |tag| %>
+  <% tag.products.each do |product| %>
+    <ul class='item-lists'>
+    <li class='list'>
+    <%= link_to product_path(product.id), method: :get do %>
+    <div class='item-img-content'>
+      <%= image_tag(product.image, class: "item-img") if product.image.attached? %>
+      <% if product.purchase_list.present? %>
+        <div class="sold-out">
+          <span>Sold Out!!</span>
+        </div>
+      <% end %>
+    </div>
+    <% end %>
+    <div class='item-info'>
+      <h3 class='item-name'>
+        <%= product.product_name %>
+      </h3>
+      <div class='item-price'>
+        <span><%= product.price %>円<br><%= product.delivery_charge.name %></span>
+        <div class='star-btn'>
+          <%= image_tag "star.png", class:"star-icon" %>
+          <span class='star-count'>0</span>
+        </div>
+      </div>
+    </div>
+    </li>
+    </ul>
+  <% end %>
+<% end %>
+<%= render "shared/footer" %>
