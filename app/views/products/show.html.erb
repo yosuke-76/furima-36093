@@ -46,6 +46,10 @@
           <td class="detail-value"><%= @product.category.name %></td>
         </tr>
         <tr>
+          <th class="detail-item">ブランド</th>
+          <td class="detail-value"><%= @product.tags.first.name %></td>
+        </tr>
+        <tr>
           <th class="detail-item">商品の状態</th>
           <td class="detail-value"><%= @product.product_status.name %></td>
         </tr>

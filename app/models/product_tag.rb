@@ -21,7 +21,7 @@ class ProductTag
 
   def save
     product = Product.create(product_name: product_name, product_text: product_text, category_id: category_id, product_status_id: product_status_id, delivery_charge_id: delivery_charge_id, prefecture_id: prefecture_id, shipping_day_id: shipping_day_id, price: price, user_id: user_id, image: image)
-    tag = Tag.create(name: name)
+    tag = Tag.where(name: name).first_or_initialize
     ProductTagRelation.create(product_id: product.id, tag_id: tag.id)
   end
 end

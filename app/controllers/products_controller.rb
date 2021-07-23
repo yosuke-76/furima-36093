@@ -20,6 +20,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @tag = Tag.find(@product.tags.ids)
   end
 
   def edit
