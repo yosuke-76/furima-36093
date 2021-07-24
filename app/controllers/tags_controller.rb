@@ -15,7 +15,6 @@ class TagsController < ApplicationController
 
   def search
     @tags = Tag.search(params[:text])
-    # @products = @tags.products
   end
 
   private
